@@ -1,0 +1,6 @@
+{
+  "extends": [
+    "wesbos"
+  ]
+}
+//https://github.com/wesbos/eslint-config-wesbos to tweak settings
