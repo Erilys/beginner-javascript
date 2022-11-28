@@ -7,10 +7,75 @@
   <title></title>
   <link rel="stylesheet" href="../base.css">
 </head>
+<style>
+  .ducky {
+    width: 90px;
+    --x: 0px;
+    --y: 500px;
+    --rotateY: 180deg;
+    --rotate: -90deg;
+    transform: translateX(var(--x)) translateY(var(--y)) rotateY(var(--rotateY)) rotate(var(--rotate));
+    transition: all 0.2s;
+  }
 
+  .arrows {
+    width: 150px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+
+</style>
 
 <body>
+  <img src="./duck.png" alt="myDuck" class="ducky">
+  <img src="./arrows.png" alt="arrowkeys" class="arrows">
+  <script>
+    const duck = document.querySelector('.ducky');
+    let x = 0;
+    let y = 10;
+    let flipped = true;
+    let rotate = '0deg';
+    const speed = 50;
 
+    function moveDuck(event) {
+      if (!event.key.includes('Arrow')) return;
+      switch (event.key) {
+        case 'ArrowUp':
+          y -= 1;
+          rotate = '-90deg';
+          break;
+        case 'ArrowDown':
+          y += 1;
+          rotate = '90deg';
+          break;
+        case 'ArrowLeft':
+          x -= 1;
+          flipped = true;
+          rotate = '0deg';
+          break;
+        case 'ArrowRight':
+          x += 1;
+          flipped = false;
+          rotate = '0deg';
+          break;
+        default:
+          break;
+      }
+
+      duck.setAttribute(
+        'style',
+        `
+        --x: ${x * speed}px;
+        --y: ${y * speed}px;
+        --rotateY: ${flipped ? '180deg' : '0deg'};
+        --rotate: ${rotate};
+      `
+      );
+    }
+
+    window.addEventListener('keydown', moveDuck);
+  </script>
 </body>
 
 </html>

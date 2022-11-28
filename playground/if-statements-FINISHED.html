@@ -38,7 +38,7 @@
     }
 
     function slugify(sentence, lowercase) {
-      let slug = sentence.replace(/\s/g, '-');
+      const slug = sentence.replace(/\s/g, '-');
       if (lowercase) {
         return slug.toLowerCase();
       }
@@ -73,7 +73,7 @@
       console.log('you dont have a dog');
     }
 
-    let score = {};
+    const score = {};
 
     if (score) {
       console.log('There is a score already');
@@ -81,11 +81,24 @@
       console.log('No score yet');
     }
 
-
-    const values = [[], {}, -10, 1, 0, '', 'full string', ' ', undefined, NaN, null, '0️⃣', '💩'];
+    const values = [
+      [],
+      {},
+      -10,
+      1,
+      0,
+      '',
+      'full string',
+      ' ',
+      undefined,
+      NaN,
+      null,
+      '0️⃣',
+      '💩',
+    ];
 
     console.group('truthy or falsy values');
-    values.forEach(value => {
+    values.forEach((value) => {
       if (value) {
         console.log(value, 'is truthy');
       } else {
@@ -146,8 +159,9 @@
     // isAdmin ? showAdminBar() : null;
     isAdmin && showAdminBar();
 
-    if (isAdmin) { showAdminBar(); }
-
+    if (isAdmin) {
+      showAdminBar();
+    }
   </script>
 </body>
 

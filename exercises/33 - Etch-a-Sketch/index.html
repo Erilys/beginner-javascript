@@ -12,7 +12,7 @@
   <div class="canvasWrap">
     <canvas width="1600" height="1000" id="etch-a-sketch"></canvas>
     <div class="buttons">
-      <button class="shake">Shake!</button>
+      <button class="shake">Shake !</button>
     </div>
 
   </div>
@@ -25,12 +25,11 @@
       align-items: center;
       justify-items: center;
       background: white;
-      background: url(https://s3.amazonaws.com/media.locally.net/original/HABA_ALT_2017-08-02-13-22-45.jpg);
+      background: url(https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80);
       background-size: cover;
     }
 
     canvas {
-      border: 30px solid #e80000;
       border-radius: 10px;
       /* Set the width and height to half the actual size so it doesn't look pixelated */
       width: 800px;
@@ -40,6 +39,19 @@
 
     canvas.shake {
       animation: shake 0.5s linear 1;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      margin-top: 16px;
+    }
+
+    button.shake {
+      border-radius: 16px;
+      background: linear-gradient(90deg, blue, red);
+      border: none;
+      padding: 12px;
     }
 
     @keyframes shake {
@@ -65,6 +77,7 @@
         transform: translate3d(4px, 0, 0);
       }
     }
+
   </style>
 </body>
 
