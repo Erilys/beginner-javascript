@@ -9,8 +9,83 @@
 </head>
 
 <body>
-  <script>
+  <style>
+    .go {
+      margin: 5rem;
+      background: white;
+      padding: 5rem;
+      width: 25rem;
+      height: 25rem;
+      transition: all 0.2s;
+    }
 
+    .go.circle {
+      border-radius: 50%;
+    }
+
+    .go.red {
+      background: red;
+    }
+
+    .go.purple {
+      background: purple;
+      color: white;
+    }
+
+    .go.fadeOut {
+      opacity: 0;
+    }
+    
+  </style>
+  <div class="go">Click Me</div>
+  <script>
+    const goButton = document.querySelector('.go');
+    const wait = (ms = 0) => new Promise((resolve) => setTimeout(resolve, ms));
+
+    async function animate(element) {
+      const button = element.currentTarget;
+      button.textContent = 'go!';
+      await wait(1000);
+      button.classList.add('circle');
+      await wait(1000);
+      button.classList.add('red');
+      await wait(1000);
+      button.classList.remove('circle');
+      await wait(1000);
+      button.classList.remove('red');
+      button.classList.add('purple');
+      await wait(1000);
+      button.classList.add('fadeOut');
+    }
+    
+    // function animate(element) {
+    //   const button = element.currentTarget;
+    //   button.textContent = 'GO!';
+    //   wait(1000)
+    //     .then(() => {
+    //       button.classList.add('circle');
+    //       return wait(800);
+    //     })
+    //     .then(() => {
+    //       button.classList.add('red');
+    //       return wait(1000);
+    //     })
+    //     .then(() => {
+    //       button.classList.remove('circle');
+    //       return wait(1500);
+    //     })
+    //     .then(() => {
+    //       button.classList.remove('red');
+    //       button.classList.add('purple');
+    //       return wait(1500);
+    //     })
+    //     .then(() => {
+    //       button.classList.add('fadeOut');
+    //       return wait(1500);
+    //     });
+    // }
+    
+    goButton.addEventListener('click', (event) => animate(event));
   </script>
 </body>
 

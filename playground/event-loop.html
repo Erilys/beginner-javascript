@@ -9,8 +9,21 @@
 </head>
 
 <body>
+  <button class="go">Clique moi !</button>
   <script>
+    const goButton = document.querySelector('.go');
+    
+    function handleClick() {
+      this.textContent = 'GO !';
+      setTimeout(() => {
+        goButton.style.borderRadius = '200px';
+      }, 2000);
+    }
 
+    // function makeItRound(el) {
+    //   console.log(el);
+    // }
+    goButton.addEventListener('click', handleClick);
   </script>
 </body>
 
