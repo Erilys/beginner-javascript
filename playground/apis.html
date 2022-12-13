@@ -9,8 +9,23 @@
 </head>
 
 <body>
+  <p class="user"></p>
   <script>
+    const userElement = document.querySelector('.user');
+    
+    async function displayUser(username) {
+      const base = `https://api.github.com/users/${username}`;
+      userElement.textContent = '...loading';
+      const response = await fetch(base);
+      const data = await response.json();
+      userElement.textContent = `${data.name} - ${data.location}`;
+    }
+    
+    function handleError(err) {
+      userElement.textContent = `Something went wrong : ${err}`;
+    }
 
+    displayUser('Erilys').catch(handleError);
   </script>
 </body>
 

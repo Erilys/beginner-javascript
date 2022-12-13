@@ -76,6 +76,10 @@ a.button, button, input[type="button"] {
   font-size:2rem;
 }
 
+button[disabled] {
+  opacity: 0.2
+}
+
 :focus {
   outline-color: var(--pink);
 }

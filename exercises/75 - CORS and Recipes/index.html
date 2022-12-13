@@ -11,13 +11,33 @@
       display: grid;
       grid-template-columns: 1fr;
     }
+
+    .recipes {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .recipe {
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      max-width: 300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    img {
+      width: 100px;
+      height: 100px;
+      border-radius: 4px;
+    }
   </style>
 </head>
 
 <body>
   <div class="wrapper">
     <form class="search" autocomplete="off">
-      <input type="text" name="query">
+      <input type="text" name="query" value="pizza">
       <button name="submit" type="submit">Submit</button>
     </form>
     <div class="recipes"></div>
