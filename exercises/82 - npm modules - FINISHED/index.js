@@ -1,5 +1,5 @@
 import wait from 'waait';
-import { name } from 'faker';
+import { faker } from '@faker-js/faker';
 import { formatDistance, format } from 'date-fns';
 import axios from 'axios';
 import { intersection, isEqual } from 'lodash';
@@ -7,8 +7,10 @@ import to from 'await-to-js';
 
 const fakeNames = Array.from(
   { length: 10 },
-  () => `${name.firstName()} ${name.lastName()}`
+  () => `${faker.name.firstName()} ${faker.name.lastName()}`
 );
+
+console.log(fakeNames);
 
 async function go() {
   console.log('Going!');
@@ -36,7 +38,7 @@ async function getJoke() {
   console.log(data);
 }
 
-// getJoke();
+getJoke();
 
 const a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const b = [5, 3, 8, 3, 7, 453, 34];
@@ -50,7 +52,7 @@ const person2 = { name: 'wes' };
 console.log(isEqual(person1, person2));
 
 function checkIfNameIsCool(firstName) {
-  return new Promise(function(resolve, reject) {
+  return new Promise((resolve, reject) => {
     if (firstName === 'Wes') {
       resolve('Cool name');
       return;
